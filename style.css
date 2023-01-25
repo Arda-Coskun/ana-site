@@ -55,7 +55,13 @@ nav ul li a {
     text-transform: uppercase;
     letter-spacing: 8px;
     position: relative;
+    
 }
+
+img {
+    border-radius: 75%;
+}
+
 
 nav ul li a::after {
     content: "";
