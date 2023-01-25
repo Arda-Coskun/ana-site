@@ -1,6 +1,8 @@
+body{ overflow: hidden;}
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 nav ul li h1 {
@@ -89,4 +91,14 @@ nav ul li a:hover {
 .cursor.large {
     height: 70px;
     width: 70px;
+}
+
+.WebContainer{
+    width: 100%;
+    height: auto;
+}
+.articles{
+    width:90%; /*Takes 90% width from WebContainer*/
+    height: auto;
+    margin: auto;
 }
