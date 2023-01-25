@@ -13,13 +13,46 @@ nav ul li h1 {
     color:white;
 }
 
+nav ul li h2 {
+    font-family: "Roboto", sans-serif;
+    background: #161a1d;
+    font-size: 70px;
+    font-weight: bold;
+    color:white;
+    transform: translateX(-670px);
+    height: 90vh;
+    
+}
+
+nav ul li1 a {
+    font-family: "Roboto", sans-serif;
+    background: #161a1d;
+    font-size: 20px;
+    font-weight: Normal;
+    color:white;
+    transform: translateY(-1000px);
+    zoom: 80%;
+
+    
+}
+
+nav ul li1 h2 {
+    font-family: "Roboto", sans-serif;
+    background: #161a1d;
+    font-size: 70px;
+    font-weight: bold;
+    color:white;
+    transform: translateX(-670px);
+    height: 90vh;
+    
+}
+
 .wrapper {
     background: #161a1d;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: url('img/custom-cursor.png'), auto;
 }
 
@@ -28,6 +61,13 @@ nav ul {
 }
 
 nav ul li {
+    margin: 32px 0;
+    animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+nav ul li1 {
     margin: 32px 0;
     animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
     transform: translateY(-100px);
@@ -54,8 +94,12 @@ nav ul li a {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 8px;
-    position: relative;
-    
+    top: 20;
+    bottom: 600px;
+    left: 126px;
+    font-size: 18px;
+    position: absolute;
+
 }
 
 img {
@@ -69,7 +113,7 @@ nav ul li a::after {
     height: 8px;
     background: #f94144;
     position: absolute;
-    bottom: -8px;
+    bottom: -8x;
     left: 0;
     transition: all 500ms;
 }
