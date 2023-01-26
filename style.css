@@ -1,50 +1,6 @@
-body{ overflow: hidden;}
 * {
     margin: 0;
     padding: 0;
-    
-}
-
-nav ul li h1 {
-    font-family: "Roboto", sans-serif;
-    background: #161a1d;
-    font-size: 70px;
-    font-weight: bold;
-    color:white;
-}
-
-nav ul li h2 {
-    font-family: "Roboto", sans-serif;
-    background: #161a1d;
-    font-size: 70px;
-    font-weight: bold;
-    color:white;
-    transform: translateX(-670px);
-    height: 90vh;
-    
-}
-
-nav ul li1 a {
-    font-family: "Roboto", sans-serif;
-    background: #161a1d;
-    font-size: 20px;
-    font-weight: Normal;
-    color:white;
-    transform: translateY(-1000px);
-    zoom: 80%;
-
-    
-}
-
-nav ul li1 h2 {
-    font-family: "Roboto", sans-serif;
-    background: #161a1d;
-    font-size: 70px;
-    font-weight: bold;
-    color:white;
-    transform: translateX(-670px);
-    height: 90vh;
-    
 }
 
 .wrapper {
@@ -53,6 +9,7 @@ nav ul li1 h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: url('img/custom-cursor.png'), auto;
 }
 
@@ -67,11 +24,62 @@ nav ul li {
     opacity: 0;
 }
 
-nav ul li1 {
-    margin: 32px 0;
-    animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
-    transform: translateY(-100px);
-    opacity: 0;
+nav ul li h1{
+    color: white;
+    font-size: 75px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    
+    
+}
+
+h2{
+    color: white;
+    font-size: 50px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+h3{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 100px;
+    left: 10px; 
+    letter-spacing: 1px; 
+    list-style: none;
+}
+
+h4{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 200px;
+    left: 10px; 
+    letter-spacing: 1px; 
+    list-style: none;
+}
+
+h5{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 300px;
+    left: 10px; 
+    letter-spacing: 1px; 
+    list-style: none;
 }
 
 @keyframes fade-down {
@@ -94,18 +102,8 @@ nav ul li a {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 8px;
-    top: 20;
-    bottom: 600px;
-    left: 126px;
-    font-size: 18px;
-    position: absolute;
-
+    position: relative;
 }
-
-img {
-    border-radius: 75%;
-}
-
 
 nav ul li a::after {
     content: "";
@@ -113,7 +111,7 @@ nav ul li a::after {
     height: 8px;
     background: #f94144;
     position: absolute;
-    bottom: -8x;
+    bottom: -8px;
     left: 0;
     transition: all 500ms;
 }
@@ -143,12 +141,8 @@ nav ul li a:hover {
     width: 70px;
 }
 
-.WebContainer{
-    width: 100%;
-    height: auto;
-}
-.articles{
-    width:90%; /*Takes 90% width from WebContainer*/
-    height: auto;
-    margin: auto;
-}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
