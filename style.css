@@ -82,6 +82,18 @@ h5{
     list-style: none;
 }
 
+h6{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 400px;
+    left: 10px; 
+    letter-spacing: 1px; 
+    list-style: none;
+}
+
 @keyframes fade-down {
 
 	30% {
