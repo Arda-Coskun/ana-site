@@ -46,16 +46,84 @@ h2{
     left: 16px;
 }
 
-p{
+p.aa{
     color: white;
     font-size: 20px;
     font-family: "Roboto", sans-serif;
     font-weight: normal;
-    position: relative;
-    top: -200px;
-    left: -690px; 
-    letter-spacing: 1px; 
+    position: absolute;
     list-style: none;
+    text-align: left;
+    line-height: 2;
+    top: 100px;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
+    transform: translateY(-100px);
+    opacity: 0;
+    display: flex;
+    
+}
+
+p.ab{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    position: absolute;
+    list-style: none;
+    text-align: left;
+    line-height: 2;
+    top: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
+    transform: translateY(-100px);
+    opacity: 0;
+    display: flex;
+    
+}
+
+p.ac{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    position: absolute;
+    list-style: none;
+    text-align: left;
+    line-height: 2;
+    top: 300px;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
+    transform: translateY(-100px);
+    opacity: 0;
+    display: flex;
+    
+}
+
+p.ad{
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    position: absolute;
+    list-style: none;
+    text-align: left;
+    line-height: 2;
+    top: 400px;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    animation: fade-down 2000ms forwards cubic-bezier(0.43, 0.53, 0.5, 1.02);
+    transform: translateY(-100px);
+    opacity: 0;
+    display: flex;
+    
 }
 
 @keyframes fade-down {
