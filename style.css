@@ -147,13 +147,27 @@ nav ul li a {
     text-transform: uppercase;
     letter-spacing: 8px;
     position: relative;
+    top: 0px;
 }
+
+nav ul li a.oc {
+    color: #cbf3f0;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    position: relative;
+    top: 250px;
+}
+
 
 nav ul li a::after {
     content: "";
     width: 0;
     height: 8px;
-    background: #f94144;
+    background: #fd3636;
     position: absolute;
     bottom: -8px;
     left: 0;
