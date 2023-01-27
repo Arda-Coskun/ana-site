@@ -291,13 +291,14 @@ nav ul li a:hover {
 
 .containercd {
     font-family: "Roboto", sans-serif;
-    width: 84vw;
-    height: 100vh;
     background-color: #161a1d;
     background-position: center;
-    padding: 0 8%;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    display: flex;
+
+    cursor: url('img/custom-cursor.png'), auto;
 }
   
 .logo{
