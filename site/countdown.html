@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width+100, inital-scale=1.0">
+    <title>Yakında Yayınlanıyoruz </title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+</head>
+<body>
+
+<div class="containercd">
+    <img src="" class="logo">
+    
+    <div class="content">
+        <p>Web Sitemiz Bakımda</p>
+        <h1>Yakında <span>Yayınlanıyoruz</span></h1>
+        <div class="launch-time">
+            <div>
+             <p id="days">00 </p>
+             <span>Gün</span>
+            </div>
+            
+            <div>
+             <p id="hours">00 </p>
+             <span>Saat</span>
+            </div>
+
+            <div>
+             <p id="minutes">00 </p>
+             <span>Dakika</span>
+            </div>
+
+            <div>
+             <p id="seconds">00</p>
+             <span>Saniye</span>
+            </div>
+
+        </div>
+        <button type="button">Learn More<img src="img/triangle.png"></button>
+
+    </div>
+    <img src="img/rocket.png" class="rocket">
+</div>
+
+<script>
+
+    var countDownDate = new Date("July 1, 2023 00:00:00").getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days=Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); 
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+        
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+
+    },1000);
+
+</script>
+
+
+</body>
+</html>
