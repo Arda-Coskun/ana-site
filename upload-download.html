@@ -1,49 +1,32 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width+100, inital-scale=1.0">
-    <title>File</title>
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- <meta http-equiv="refresh" content="0; URL=countdown" -->
-    <style>
-        a{
-            text-decoration: none;
-            color: white;
-        }
-    </style>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <title>Upload-Download</title>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3403539919880614"
+     crossorigin="anonymous"></script> -->
 </head>
-<body style="background-color: #161a1d;">
-    
+<body>
+    <div class="card">
+        <h1>Upload Download</h1>
+        
+        <h2>Dosya Yükle</h2>
+   <input type="file" id="file" ><br>
+   <center><button id="upload" onclick="uploadImage()">Upload<img id="uping" src="img/upload.png" alt="none"/></button></center>
 
-    <div class="wrapper">
-       
-     <h2>Upload-Download:</h2>
-        <nav>
-            <ul>
-
-                <p class="ae">Dosya yüklemek için alttaki kutucuğa tıklayınız</p>
-
-                   <form action="/action_page.php">
-                   <input type="file" id="myFile" name="filtrame" >
-                   <a class="oc" href="myFile" download class="download-btn">
-                    <input type="button" id="send" value="Yükle">
-                   </a>
-                </form>
-                <li>
-                    <li>
-                      <a class="occ" href="/">Geri</a>
-                    </li>
-                </li>
-            </ul>
-        </nav>
-        <div class="cursor"></div>
-    </div>
-    
-    <script src="main.js"></script>
-
-
+   <center><div id="ShowUniqueID" hidden><p>Unique ID</p><input type="text" id="showunique"  value="23456" disabled></input></div></center>
+   <!-- <br> -->
+   <div class="Download" id="downloadiv">
+   <h2>Dosya İndir</h2>
+   
+   <input type="text" id="unique" placeholder="Enter Unique ID">
+   <center><button id="show" onclick="showimage()">Download<img id="downimg" src="img/download.png" alt="none"/></button></div></center>
+</div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+<script src="script.js"></script>
 </html>
