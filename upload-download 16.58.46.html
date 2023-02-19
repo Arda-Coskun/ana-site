@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <title>Upload-Download</title>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3403539919880614"
+     crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <div class="card">
+        <h1>Upload Download</h1>
+        
+        <h2>Dosya Yükle</h2>
+   <input type="file" id="file" ><br>
+   <center><button id="upload" onclick="uploadImage()">Upload<img id="uping" src="img/upload.png" alt="none"/></button></center>
+
+   <center><div id="ShowUniqueID" hidden><p>Unique ID</p><input type="text" id="showunique"  value="23456" disabled></input></div></center>
+   <!-- <br> -->
+   <div class="Download" id="downloadiv">
+   <h2>Dosya İndir</h2>
+   
+   <input type="text" id="unique" placeholder="Enter Unique ID">
+   <center><button id="show" onclick="showimage()">Download<img id="downimg" src="img/download.png" alt="none"/></button></div></center>
+</div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+<script src="script.js"></script>
+</html>
