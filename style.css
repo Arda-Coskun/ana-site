@@ -35,7 +35,7 @@
 }
 
 .wrapper {
-    background: #161a1d;
+    background: #1c1e26;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ nav ul li {
 nav ul li h1{
     color: white;
     font-size: 75px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: bold;
     position: relative;
     top: 0px;
@@ -70,7 +70,7 @@ nav ul li h1{
 h2{
     color: white;
     font-size: 50px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: bold;
     position: absolute;
     top: 8px;
@@ -80,7 +80,7 @@ h2{
 p.aa{
     color: white;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: normal;
     position: absolute;
     list-style: none;
@@ -100,7 +100,7 @@ p.aa{
 p.ab{
     color: white;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: normal;
     position: absolute;
     list-style: none;
@@ -120,7 +120,7 @@ p.ab{
 p.ac{
     color: white;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: normal;
     position: absolute;
     list-style: none;
@@ -140,7 +140,7 @@ p.ac{
 p.ad{
     color: white;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: normal;
     position: absolute;
     list-style: none;
@@ -160,7 +160,7 @@ p.ad{
 p.ae{
     color: white;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: Bold;
     position: relative;
     list-style: none;
@@ -185,7 +185,7 @@ a.deneme{
   font-size: 18px;
   text-decoration: none;
   color: white;
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
@@ -210,7 +210,7 @@ a.deneme{
 
 nav ul li a {
     color: #cbf3f0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
@@ -222,7 +222,7 @@ nav ul li a {
 
 nav ul li a.oc {
     color: #cbf3f0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
@@ -235,7 +235,7 @@ nav ul li a.oc {
 
 nav ul li a.occ {
     color: #cbf3f0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
@@ -267,7 +267,16 @@ nav ul li a:hover {
 }
 
 .cursor {
-    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    background: #ffffffff;
+    border-radius: 50%;
+    position: absolute;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    transition: width 1000ms, height 1000ms;
+    
+    /*position: fixed;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -275,7 +284,7 @@ nav ul li a:hover {
     left: 0;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    transition: width 1000ms, height 1000ms;
+    transition: width 1000ms, height 1000ms;*/
 }
 
 .cursor.large {
@@ -290,8 +299,8 @@ nav ul li a:hover {
   }
 
 .containercd {
-    font-family: "Roboto", sans-serif;
-    background-color: #161a1d;
+    font-family: "Space Grotesk", sans-serif;
+    background-color: #1c1e26;
     background-position: center;
     align-items: center;
     justify-content: center;
@@ -399,6 +408,7 @@ nav ul li a:hover {
 
 .card {
     width: 400px;
+    transform: scaleY(1);
     height: 550px;
     margin: auto;
     margin-top: 20px;
@@ -407,10 +417,10 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 20px;
     color: #fff;
-    background-color: #ceff89;
+    background-color: #1c1e26;
     border-color: #212529;
     border-radius: 10px;
   }
@@ -423,16 +433,17 @@ nav ul li a:hover {
   }
 
   body {
-    background-color: #161a1d;
+    background-color: #1c1e26;
   }
   h1 {
     /* animation: flicker 1.5s infinite alternate; */
     color:rgb(0, 0, 0);
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 50px;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #fff;
     
   }
 
@@ -444,8 +455,8 @@ nav ul li a:hover {
     53%,
     57%,
     100% {
-      text-shadow: 0 0 4px rgb(0, 0, 0), 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa,
-        0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa, 0 0 150px #0fa;
+      text-shadow: 0 0 4px rgb(0, 0, 0), 0 0 11px #1c1e26, 0 0 19px #1c1e26, 0 0 40px #1c1e26,
+        0 0 80px #1c1e26, 0 0 90px #1c1e26, 0 0 100px #1c1e26, 0 0 150px #1c1e26;
     }
     20%,
     24%,
@@ -498,7 +509,7 @@ button{
     /* font size */
     font-size: 20px;
     /* font family */
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     /* border none */
     border: none;
     /* cursor pointer */
@@ -536,10 +547,10 @@ button{
 }
 
 h2.du{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
-    color: #212529;
-    background-color: #ceff89;
+    color: #fff;
+    background-color: #1c1e26;
     border-color: #212529;
     border-radius: 10px;
     padding: 10px 20px;
@@ -548,9 +559,9 @@ h2.du{
 }
 
 p{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
-    color: #212529;
+    color: #fff;
     
     border-color: #212529;
     border-radius: 10px;
@@ -560,10 +571,10 @@ p{
 }
 #showunique{
     width: 200px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 50px;
     color: #212529;
-    background-color: #ceff89;
+    background-color: #1c1e26;
     border-color: #212529;
     border-radius: 10px;
     padding: 10px 20px;
@@ -571,7 +582,7 @@ p{
 }
 #showunique:hover{
     background-color: #212529;
-    color: #ceff89;
+    color: #1c1e26;
     border-color: #212529;
     border-radius: 10px;
     padding: 10px 20px;
@@ -586,7 +597,7 @@ p{
 }
 #footer{
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 20px;
     color: #212529;
     /* background-color: #ceff89; */
@@ -598,7 +609,7 @@ p{
 }
 
 #note{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 10px;
     color: #212529;
     /* background-color: #ceff89; */
@@ -626,7 +637,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    font-family: "Monument Extended";
+    font-family: "Space Grotesk", sans-serif;
     background: #e3e3e3;
 }
 
@@ -693,7 +704,7 @@ body.preloader{
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: "Open Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     color: #fff;
     font-size: large;
     font-weight: bold;

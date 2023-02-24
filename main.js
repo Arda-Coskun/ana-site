@@ -3,8 +3,8 @@ const links = document.querySelectorAll("nav ul li a");
 const navlinks = document.querySelectorAll("nav ul li");
 
 document.addEventListener("mousemove", (e) => {
-    let leftPosition = e.pageX + 4;
-    let topPosition = e.pageY + 4;
+    let leftPosition = e.pageX - 40;
+    let topPosition = e.pageY - 40;
 
     cursor.style.left = leftPosition + "px";
     cursor.style.top = topPosition + "px";
