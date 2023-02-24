@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width+100, inital-scale=1.0">
+    <title>Doğrulama</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="password.js"></script>
+    <!-- <meta http-equiv="refresh" content="0; URL=countdown" -->
+</head>
+<body style="background-color: #161a1d;">
+
+    <div class="wrapper">
+       
+     <h2>Sayfaya Yönledirilmek İçin Şifreyi Girin:</h2>
+        <nav>
+            <ul>
+                <li>
+                    <form class="passform" action="upload-download.html" onsubmit="return passcheck()">
+                        <h2 style="left:-75%; top:1%">Şifre:</h2><input type="password" style="border:0;outline:0;font-size: 20px; width:200px; height:30px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-family: Open Sans, sans-serif;" required id="pass1">
+                    </form>
+                    <li>
+                     <a class="oc" href="/">Geri</a>
+                    </li>
+                </li>
+            </ul>
+        </nav>
+        <div class="cursor"></div>
+    </div>
+    
+    <script src="main.js"></script>
+
+        
+
+</body>
+</html>
