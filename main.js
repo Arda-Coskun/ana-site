@@ -34,7 +34,7 @@ navlinks.forEach((li, i) => {
 
 let docTitle = document.title;
 window.addEventListener("blur", ()=>{
-    document.title = "Geri Gelcen mi? :(";
+    document.title = "Arda COŞKUN";
 })
 
 window.addEventListener("focus", ()=>{
@@ -215,35 +215,18 @@ const firebaseConfig = {
 
 
 
-var password = "admin";
-
-function passcheck() {
-if(document.getElementById('pass1').value != password) { 
-alert('Şifre Yanlış, Tekrar Deneyin!');
-return false;
-}
-  
-if (document.getElementById('pass1').value == password) {
-alert('Şifre doğru!');
-}
-}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function checkPassword(){
+   if(document.getElementById('password').value == 'admin'){
+    ('Correct Password!'); 
+      location.href = "upload-download";
+     } else {
+     ('Wrong Password!');
+      return false;
+    }
+   }
 
 
 

@@ -13,26 +13,20 @@
 <body style="background-color: #161a1d;">
 
     <div class="wrapper">
-       
-     <h2>Sayfaya Yönledirilmek İçin Şifreyi Girin:</h2>
-        <nav>
-            <ul>
-                <li>
-                    <form class="passform" action="upload-download.html" onsubmit="return passcheck()">
-                        <h2 style="left:-75%; top:1%">Şifre:</h2><input type="password" style="border:0;outline:0;font-size: 20px; width:200px; height:30px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-family: Open Sans, sans-serif;" required id="pass1">
-                    </form>
-                    <li>
-                     <a class="oc" href="/">Geri</a>
-                    </li>
-                </li>
-            </ul>
-        </nav>
+        <form class="form1" action="/upload-download">
+            <div class="input nobottomborder">
+                <div class="inputcontent">
+                    <p style="font-size: 20px;">Şifreyi girin:</p>
+                    <input style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: groove; background-color: #161a1d; outline: none; caret-color: white; color: white;" type="password" id="password" placeholder="Şifre"  /><br />
+                </div>
+            </div>
+
+            <div class="buttons">
+                <input style="font-family: Space Grotesk, sans-serif; width:140px; height:40px; " class="orangebutton" type="button" value="Gönder" onclick="checkPassword()" />
+            </div>
+        </form>
         <div class="cursor"></div>
     </div>
-    
-    <script src="main.js"></script>
-
-        
-
+    <script>src="main.js"</script>
 </body>
 </html>
