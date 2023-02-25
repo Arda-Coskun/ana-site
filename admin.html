@@ -14,59 +14,25 @@
     <!-- <meta http-equiv="refresh" content="0; URL=countdown" -->
 </head>
 <body style="background-color: #1c1e26;">
-
-    <div id="preloader">
-        <div class="p">YÜKLENİYOR...</div>
-    </div>
-
-    <script>
-
-    paceOptions = {
-    ajax: true,
-    document: true,
-    eventLag: false
-    };
-
-    Pace.on('done', function() {
-    $('.p').delay(500).animate({top: '30%', opacity: '0'}, 3000, $.bez([0.19,1,0.22,1]));
-
-
-    $('#preloader').delay(100).animate({top: '-100%'}, 2000, $.bez([0.19,1,0.22,1]));
-
-    TweenMax.from(".title", 2, {
-         delay: 1.8,
-              y: 10,
-              opacity: 0,
-              ease: Expo.easeInOut
-        })
-   });
-
-  </script>
-
-
-
-
-
-
     <div class="wrapper">
 
         <nav>
             <ul>
 
                 <li>
-                    <h1>Arda Coşkun</h1>
+                    <h1>ADMİN</h1>
                 </li> 
                 
                 <li>
-                    <a href="aboutme">Hakkımda</a>
+                    <a href="upload-download">Upload-Download</a>
                 </li>
 
                 <li>
-                    <a href="projects">Projeler</a>
+                    <a href="multitv">MultiTV</a>
                 </li>
 
                 <li>
-                    <a href="contact">İLETİŞİM</a>
+                    <a href="contact">YAKINDA...</a>
 
                 </li>
 
