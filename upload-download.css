@@ -1,0 +1,306 @@
+.card {
+    width: 400px;
+    transform: scaleY(1);
+    height: 550px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #1c1e26;
+    border-color: #212529;
+    border-radius: 10px;
+  }
+  /*Make Above Card responsive*/
+  @media only screen and (max-width: 600px) {
+    .card {
+      width: 95%;
+      
+    }
+  }
+
+  body {
+    background-color: #1c1e26;
+  }
+  h1 {
+    /* animation: flicker 1.5s infinite alternate; */
+    color:rgb(0, 0, 0);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    
+  }
+
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 4px rgb(0, 0, 0), 0 0 11px #1c1e26, 0 0 19px #1c1e26, 0 0 40px #1c1e26,
+        0 0 80px #1c1e26, 0 0 90px #1c1e26, 0 0 100px #1c1e26, 0 0 150px #1c1e26;
+    }
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+input[type="text"] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+input[type="text"]:focus {
+    border: 3px solid #555;
+  }
+input[type="file"]{
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    color:#212529;
+  }
+input[type="file"]:focus {
+    border: 3px solid #555;
+  }
+  
+/* download */
+
+button{
+    height: 63px;
+    /* Rounded corner downloadbutton */
+    border-radius: 10px;
+    /* grey black background */
+    background-color: #212529;
+    /* white text */
+    color: #fff;
+    /* padding */
+    padding: 10px 20px;
+    /* text decoration none */
+    text-decoration: none;
+    /* font size */
+    font-size: 20px;
+    /* font family */
+    font-family: "Space Grotesk", sans-serif;
+    /* border none */
+    border: none;
+    /* cursor pointer */
+    cursor: pointer;
+    /* Center text and image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+#downimg{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    -webkit-user-drag: none;
+}
+#uping{
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 0px solid #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    /* avoid image draggable or selectable */
+    -webkit-user-drag: none;
+    user-select: none;
+
+}
+
+h2.du{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    color: #fff;
+    background-color: #1c1e26;
+    border-color: #212529;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+p{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    color: #fff;
+    
+    border-color: #212529;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: 700;
+}
+#showunique{
+    width: 200px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 50px;
+    color: #212529;
+    background-color: #1c1e26;
+    border-color: #212529;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+}
+#showunique:hover{
+    background-color: #212529;
+    color: #1c1e26;
+    border-color: #212529;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+}
+#ShowUniqueID{
+    width:max-content;
+    margin-top: 10px;
+    text-align: center;
+   
+    
+}
+#footer{
+    text-align: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+    color: #212529;
+    /* background-color: #ceff89; */
+    border-color: #212529;
+    border-radius: 10px;
+    /* padding: 5px 20px; */
+    text-align: center;
+    /* margin-top: 10px; */
+}
+
+#note{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 10px;
+    color: #212529;
+    /* background-color: #ceff89; */
+    border-color: #212529;
+    border-radius: 10px;
+    /* padding: 10px 20px; */
+    text-align: center;
+    /* margin-top: 20px; */
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: "Space Grotesk", sans-serif;
+    background: #e3e3e3;
+}
+
+h1.preloader {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #101010;
+}
+
+body.preloader{
+  margin:0px;
+  padding:0px;
+}
+
+.pace {
+  pointer-events: none;
+  user-select: none;
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  border: 0px;
+  height: 1px;
+  overflow: hidden;
+  background:#1b1b1b;
+}
+
+.pace .pace-progress {
+  box-sizing: border-box;
+  transform: translate3d(0, 0, 0);
+  max-width: 400px;
+  position: fixed;
+  z-index: 2000;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  width: 100%;
+  background: grey;
+}
+
+.pace.pace-inactive {
+  display: none;
+}
+
+#preloader{
+  width:100%;
+  height:100vh;
+  background:#101010;
+  overflow:hidden;
+  position:fixed;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.p {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Space Grotesk", sans-serif;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+}
+
