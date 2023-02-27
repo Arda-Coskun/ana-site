@@ -55,6 +55,17 @@ nav ul li {
     opacity: 0;
 }
 
+p{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    color: #fff;
+    border-color: #212529;
+    border-radius: 10px;
+    padding: 10px 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
 nav ul li h1{
     color: white;
     font-size: 75px;

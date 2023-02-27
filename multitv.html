@@ -1,49 +1,78 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
+    <title>MultiTV</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width+100, inital-scale=1.0">
-    <title>Arda Coşkun</title>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-    <link rel="stylesheet" href="multitv.css">
-    <script src="multitv.js"></script>
+    <link rel="stylesheet" href="style.css">
     <!-- <meta http-equiv="refresh" content="0; URL=countdown" -->
-</head>
-<style>
-    h2{  
-     color: white;
-     font-size: 50px;
-     font-family: "Space Grotesk", sans-serif;
-     font-weight: bold;
-     position:static;
-    }
-</style>
-<body style="background-color: #1c1e26;">
-    <h2 >CANLI KANALLAR</h2>
-    <div id="multi-tv">
-        <div id="player-1"></div>
-        <div id="player-2"></div>
-        <div id="player-3"></div>
-        <div id="player-4"></div>
-        <div id="player-5"></div>
-        <div id="player-6"></div>
-        <div id="player-7"></div>
-        <div id="player-8"></div>
-        <div id="player-9"></div>
-        <div id="player-10"></div>
-        <div id="player-11"></div>
-        <div id="player-12"></div>
-
-        <!-- Add more video players with unique IDs for each player -->
-      </div>      
-      
-        <div class="cursor"></div>
-    </div> 
-    <script>
-        function onYouTubeIframeAPIReady() {
-          initMultiTV();
+    <style>
+        /* Style for video frames */
+        .video-container iframe {
+            width: 401px;
+            height: 290px;
+            border: none;
+            margin-left:10px;
+            margin-bottom:5px;
         }
-    </script>      
+
+        #countdown {
+          font-size: 30px;
+          font-weight: bold;
+          text-align: center;
+          color: #cbf3f0;
+          font-family: "Space Grotesk", sans-serif;
+        }
+    </style>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("May 14, 2023 00:00:00").getTime();
+      
+        // Update the countdown every second
+        var x = setInterval(function() {
+      
+          // Get the current time
+          var now = new Date().getTime();
+      
+          // Calculate the distance between now and the count down date
+          var distance = countDownDate - now;
+      
+          // Calculate days, hours, minutes, and seconds remaining
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+          // Display the countdown in the element with id="countdown"
+          document.getElementById("countdown").innerHTML = days + " Gün " + hours + " Saat "
+          + minutes + " Dakika " + seconds + " Saniye ";
+      
+          // If the countdown is over, display a message
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+    </script>
+      
+</head>
+<body style="background-color: #1c1e26;">
+    <!-- Video container -->
+    <div class="video-container">
+        <!-- Video frames -->
+        <div id="countdown"></div>
+        <iframe src="https://www.youtube.com/embed/UVPejgEw21c?autoplay=1&mute=1"></iframe>
+        <iframe src="https://www.youtube.com/embed/sd94keSra6A?autoplay=1&mute=1"></iframe>
+        <iframe src="https://www.youtube.com/embed/r2ZgRoX2orE?autoplay=1&mute=1"></iframe>
+        <iframe src="https://www.youtube.com/embed/V5mBTSql74Q?autoplay=1&mute=1"></iframe>
+        <iframe src="https://www.youtube.com/embed/8YPC2IV7ve0?autoplay=1&mute=1"></iframe>
+        <iframe src="https://www.youtube.com/embed/oIB7jWSHTAo?autoplay=1&mute=1"></iframe>
+        <iframe src="https://www.youtube.com/embed/3QDiWPZ2D_k?autoplay=1&mute=1"></iframe>
+
+        <a class="deneme" a href="admin">Geri</a>
+    </div> 
 </body>
 </html>
+
