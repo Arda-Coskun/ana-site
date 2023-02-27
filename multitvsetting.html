@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MultiTVZ</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width+100, inital-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <!-- <meta http-equiv="refresh" content="0; URL=countdown" -->
+    <style>
+        /* Style for video container */
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 20px;
+            margin: 20px;
+        }
+
+
+        /* Style for video frames */
+        .video-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        /* Style for sidebar */
+        .sidebar {
+            width: 200px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #373c4c;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* Style for sidebar item */
+        .sidebar-item {
+            margin-bottom: 10px;
+        }
+
+        /* Style for sidebar label */
+        .sidebar-label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+            font-size: 12.5px;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: bold;
+            top: 8px;
+            left: 16px;
+        }
+
+        /* Style for sidebar input */
+        .sidebar-input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+        }
+
+        /* Style for sidebar button */
+        .sidebar-button {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            background-color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // Function to update video source when ID is changed
+        function updateVideo(videoId, videoFrameId) {
+            // Get video frame element
+            let videoFrame = document.getElementById(videoFrameId);
+
+            // Update video source with new ID
+            videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1?mute=1`;
+        }
+    </script>
+</head>
+<body style="background-color: #1c1e26;">
+    <!-- Video container -->
+    <div class="video-container">
+        <!-- Video frames -->
+        <iframe id="video1" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video2" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video3" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video4" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video5" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video1" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video2" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video3" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video4" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+        <iframe id="video5" src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1?mute=1" allowfullscreen></iframe>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId1">Video 1 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId1" name="videoId1">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId1').value, 'video1')">Update Video 1</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId2">Video 2 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId2" name="videoId2">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId2').value, 'video2')">Update Video 2</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId3">Video 3 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId3" name="videoId3">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId3').value, 'video3')">Update Video 3</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId4">Video 4 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId4" name="videoId4">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId4').value, 'video4')">Update Video 4</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId5">Video 5 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId5" name="videoId5">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId5').value, 'video5')">Update Video 5</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId6">Video 6 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId6" name="videoId6">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId6').value, 'video6')">Update Video 6</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId7">Video 7 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId" name="videoId7">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId7').value, 'video7')">Update Video 7</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId8">Video 8 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId8" name="videoId8">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId8').value, 'video8')">Update Video 8</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId9">Video 9 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId9" name="videoId9">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId9').value, 'video9')">Update Video 9</button>
+        </div>
+        <div class="sidebar-item">
+            <label class="sidebar-label" for="videoId10">Video 10 ID:</label>
+            <input class="sidebar-input" type="text" id="videoId10" name="videoId10">
+            <button class="sidebar-button" onclick="updateVideo(document.getElementById('videoId10').value, 'video10')">Update Video 10</button>
+        </div>
+    </div>
+</body>
+</html>
+
