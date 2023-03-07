@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kod Depolama</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width+100, inital-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <title>Copy Code Example</title>
+    <style>
+      /* Code frame styles */
+      .code-frame {
+        border: 1px solid #ff8000;
+        background-color: #1c1e26;;
+        padding: 10px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.5;
+        margin-bottom:5px;
+      }
+      
+      /* Copy button styles */
+      .copy-btn {
+        top: 10px;
+        right: 10px;
+        border: none;
+        background-color: #ff8000;
+        color: white;
+        padding: 8px 12px;
+        font-size: 23px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        border: none;
+        display: inline-block;
+        font-family: "Space Grotesk", sans-serif;
+        vertical-align: middle;
+      }
+      
+      /* Copy button on hover styles */
+      .copy-btn:hover {
+        background-color: #1c1e21;
+        color: white;
+      }
+
+      code{
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="code-frame">
+      <code>
+        import com.revrobotics.*;
+        import edu.wpi.first.wpilibj.*;
+        import edu.wpi.first.wpilibj.interfaces.*;
+
+    public class Robot extends TimedRobot {
+      private final int JOYSTICK_PORT = 0;
+      private final int MOTOR_PORT = 1;
+      private final int BUTTON_ID = 1;
+      private final double MAX_SPEED = 0.5; // Set the maximum motor speed to 50%
+      private final double TARGET_POSITION = 90.0; // Set the target position to 90 degrees
+      
+      private Joystick joystick;
+      private CANSparkMax motor;
+      private CANEncoder encoder;
+      private CANPIDController pidController;
+      
+      @Override
+      public void robotInit() {
+          joystick = new Joystick(JOYSTICK_PORT);
+          motor = new CANSparkMax(MOTOR_PORT, CANSparkMaxLowLevel.MotorType.kBrushless);
+          encoder = motor.getEncoder();
+          pidController = motor.getPIDController();
+          pidController.setP(0.1);
+          pidController.setI(0.0);
+          pidController.setD(0.0);
+          pidController.setIZone(0.0);
+          pidController.setFF(0.0);
+          pidController.setOutputRange(-MAX_SPEED, MAX_SPEED);
+      }
+
+      @Override
+      public void teleopPeriodic() {
+          boolean buttonPressed = joystick.getRawButton(BUTTON_ID);
+          double position = encoder.getPosition() * 360.0 / encoder.getCountsPerRevolution(); // Convert encoder position to degrees
+
+          if (buttonPressed) {
+              double targetPosition = position + TARGET_POSITION;
+              pidController.setReference(targetPosition, ControlType.kPosition);
+          } else {
+              pidController.setReference(position, ControlType.kPosition);
+          }
+      }
+    }
+      </code>
+      <button class="copy-btn" onclick="copyToClipboard(0)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
+    </div>
+    <div class="code-frame">
+      <code>
+        package com.example;
+        import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+        import com.revrobotics.CANEncoder;
+        import com.revrobotics.CANPIDController;
+        import com.revrobotics.CANSparkMax;
+        import com.revrobotics.CANSparkMaxLowLevel;
+        import edu.wpi.first.wpilibj.*;
+        import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+        import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+        import edu.wpi.first.networktables.NetworkTable;
+        import edu.wpi.first.networktables.NetworkTableInstance;
+
+        public class Robot extends TimedRobot {
+        
+            //Constants for Limelight vision processing
+            final int IMG_WIDTH = 320;
+            final int IMG_HEIGHT = 240;
+            final double TARGET_AREA = 3.0;
+            final double STEER_K = 0.03; // Proportional control constant - angle
+            final double DRIVE_K = 0.26; // Proportional control constant - speed
+            final double MAX_DRIVE_SPEED = 0.4; // Max drive speed
+            double dist_to_target, angle_error, steering_adjust, left_speed, right_speed;
+
+            //Declare NEO Motor Controller
+            private CANSparkMax m_left_motor = new CANSparkMax(1, CANSparkMaxLowLevel.MotorType.kBrushless);
+            private CANSparkMax m_right_motor = new CANSparkMax(2, CANSparkMaxLowLevel.MotorType.kBrushless);
+
+            //Declare Pigeon Gyro
+            private PigeonIMU m_pidgey = new PigeonIMU(14);
+
+            //Declare Encoders
+            private CANEncoder m_left_encoder = m_left_motor.getEncoder();
+            private CANEncoder m_right_encoder = m_right_motor.getEncoder();
+        
+            //Declare Differential Drive
+            private DifferentialDrive m_drive = new DifferentialDrive(m_left_motor, m_right_motor);
+        
+            //Declare Limelight NetworkTable
+            private NetworkTable m_limetable;
+        
+            @Override
+            public void robotInit() {
+
+                //Set right motor to follow left motor
+                m_right_motor.follow(m_left_motor, true);
+
+                // Invert drivetrain for correct direction of movement
+                m_drive.setRightSideInverted(false);
+            
+                 //Set encoder distance per pulse manually
+                 m_left_encoder.setPositionConversionFactor(1/42975.1); //Calculated based on gearbox ratios
+                 m_right_encoder.setPositionConversionFactor(1/42975.1); //Calculated based on gearbox ratios
+
+                //Initialize the Limelight NetworkTable
+                m_limetable = NetworkTableInstance.getDefault().getTable("limelight");
+            
+                //Set the camera settings
+                m_limetable.getEntry("pipeline").setNumber(0);
+                m_limetable.getEntry("camMode").setNumber(0);
+                m_limetable.getEntry("ledMode").setNumber(3);
+            }
+          
+            @Override
+            public void teleopPeriodic() {
+
+                //Get values from Limelight NetworkTable for vision processing
+                double x_offset = m_limetable.getEntry("tx").getDouble(0.0);
+                double y_offset = m_limetable.getEntry("ty").getDouble(0.0);
+                double area = m_limetable.getEntry("ta").getDouble(0.0);
+                boolean target_found = m_limetable.getEntry("tv").getBoolean(false);
+
+                //Calculate distance to target based on vision processing data
+                if(target_found) {
+                    dist_to_target = (TARGET_AREA/area)*Math.cos(Math.toRadians(y_offset));
+                    SmartDashboard.putNumber("Distance To Target", dist_to_target);
+                }
+                else{
+                    dist_to_target = 0.0;
+                    SmartDashboard.putNumber("Distance To Target", dist_to_target);
+                }
+              
+                //Get gyro position for angle calculation
+                double heading = getYaw();
+
+                //Calculate error in angle to the target
+                angle_error = -x_offset; //Assuming targeting center of the screen
+              
+                //Calculate steering adjustment needed to target the center of the target
+                steering_adjust = STEER_K * angle_error;
+                left_speed = MAX_DRIVE_SPEED - steering_adjust;
+                right_speed = MAX_DRIVE_SPEED + steering_adjust;
+              
+                //Limit driving speed
+                if(left_speed > MAX_DRIVE_SPEED){
+                    left_speed = MAX_DRIVE_SPEED;
+                }
+                if(right_speed > MAX_DRIVE_SPEED){
+                    right_speed = MAX_DRIVE_SPEED;
+                }
+                if(left_speed < -MAX_DRIVE_SPEED){
+                    left_speed = -MAX_DRIVE_SPEED;
+                }
+                if(right_speed < -MAX_DRIVE_SPEED){
+                    right_speed = -MAX_DRIVE_SPEED;
+                }
+              
+                //Drive the robot
+                m_drive.tankDrive(left_speed, right_speed);
+            }
+            
+            @Override
+            public void autonom() {// bunu değiştir
+
+              // Get the x and y values of the joystick from the driver station controller.
+              double moveSpeed = -driverController.getY(GenericHID.Hand.kLeft);
+              double rotateSpeed = driverController.getX(GenericHID.Hand.kRight);
+          
+              // Use the PID loop for Drivetrain's target control position and velocity( measured from encoders).
+              leftPIDController.setReference(moveSpeed + rotateSpeed, ControlType.kVelocity);
+              rightPIDController.setReference(moveSpeed - rotateSpeed, ControlType.kVelocity);
+          
+              // Reading the data from the Gyroscope axis and calculating the robot's angle.
+              double[] ypr = new double[3];
+              pigeon.getYawPitchRoll(ypr);
+              double angle = Math.IEEEremainder(ypr[0], 360.0);
+          
+              // Using the PhotonVision Limelight for Locking and tracking specific targets detected by AprilTAG id:1.
+              if (camera.hasTarget()) {
+                  double tx = camera.getX();
+                  double ty = camera.getY();
+                  double ta = camera.getTargetArea();
+          
+                  double heading_error = -tx;
+                  double distance_error = -ty;
+                  double rotation_adjustment = KpAim * heading_error;
+          
+                  // If the limelight sees a valid target, then tell the Robot to move towards it.
+                  if (distance_error > MAX_AREA_ERROR) {
+                      current_speed = KpDistance * distance_error;
+                  } else {
+                      current_speed = 0.0;
+                  }
+          
+                  tankDrive.arcadeDrive(current_speed, rotation_adjustment);
+              } else {
+                  tankDrive.arcadeDrive(moveSpeed, rotateSpeed);
+              }
+          }
+          
+
+            public double getYaw(){
+                //Get yaw rate 
+      </code>
+      <button class="copy-btn" onclick="copyToClipboard(1)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
+    </div>
+    <div class="code-frame">
+      <code>
+        SOON...
+      </code>
+      <button class="copy-btn" onclick="copyToClipboard(2)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
+    </div>
+    <div class="code-frame">
+      <code>
+        SOON...
+      </code>
+      <button class="copy-btn" onclick="copyToClipboard(3)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
+    </div>
+    <script>
+      function copyToClipboard(frameIndex) {
+        /* Get the code frame element */
+        var codeFrame = document.querySelectorAll('.code-frame')[frameIndex];
+        
+        /* Create a range object */
+        var range = document.createRange();
+        
+        /* Select the code frame contents */
+        range.selectNode(codeFrame);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        
+        /* Copy the selected contents */
+        document.execCommand('copy');
+        
+        /* Deselect the code frame contents */
+        window.getSelection().removeAllRanges();
+      }
+    </script>
+  </body>
+</html>
