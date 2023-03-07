@@ -248,22 +248,185 @@
                   tankDrive.arcadeDrive(moveSpeed, rotateSpeed);
               }
           }
-          
-
-            public double getYaw(){
-                //Get yaw rate 
       </code>
       <button class="copy-btn" onclick="copyToClipboard(1)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
     </div>
     <div class="code-frame">
       <code>
-        SOON...
+        /* Including libraries */
+        import com.revrobotics.CANSparkMax;
+        import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+        import com.revrobotics.CANEncoder;
+        import com.revrobotics.CANDigitalInput;
+        import com.ctre.phoenix.sensors.PigeonIMU;
+        import edu.wpi.first.wpilibj.Joystick;
+              
+        public class SwerveDrive {
+          
+          /*Creating CANSparkMax objects*/
+          private final CANSparkMax m_fL (1, MotorType.kBrushless);
+          private final CANSparkMax m_fR (2, MotorType.kBrushless);
+          private final CANSparkMax m_bL (3, MotorType.kBrushless);
+          private final CANSparkMax m_bR (4, MotorType.kBrushless);
+        
+          /*Creating CANEncoder objects for each motor*/
+          private final CANEncoder m_encoder_fL;
+          private final CANEncoder m_encoder_fR;
+          private final CANEncoder m_encoder_bL;
+          private final CANEncoder m_encoder_bR;
+        
+          /*Creating CANDigitalInput objects for each motor*/
+          private final CANDigitalInput m_limitSwitch_fL;
+          private final CANDigitalInput m_limitSwitch_fR;
+          private final CANDigitalInput m_limitSwitch_bL;
+          private final CANDigitalInput m_limitSwitch_bR;
+        
+          /*Creating PigeonIMU object*/
+          private final PigeonIMU m_pigeon;
+        
+          /*Creating Joystick object*/
+          private final Joystick m_controller = new Joystick(0);
+        
+          public SwerveDrive() {
+          
+            /*Initializing the encoders and limit switches*/
+            m_encoder_fL = m_fL.getEncoder();
+            m_encoder_fR = m_fR.getEncoder();
+            m_encoder_bL = m_bL.getEncoder();
+            m_encoder_bR = m_bR.getEncoder();
+          
+            m_limitSwitch_fL = m_fL.getForwardLimitSwitch(CANDigitalInput.LimitSwitchPolarity.kNormallyOpen);
+            m_limitSwitch_fR = m_fR.getForwardLimitSwitch(CANDigitalInput.LimitSwitchPolarity.kNormallyOpen);
+            m_limitSwitch_bL = m_bL.getForwardLimitSwitch(CANDigitalInput.LimitSwitchPolarity.kNormallyOpen);
+            m_limitSwitch_bR = m_bR.getForwardLimitSwitch(CANDigitalInput.LimitSwitchPolarity.kNormallyOpen);
+          
+            /*Initializing the PigeonIMU*/
+            m_pigeon = new PigeonIMU(5);
+          
+          }
+        
+          public void swerveDrive() {
+          
+            /*Getting joystick inputs*/
+            double x = m_controller.getRawAxis(0);
+            double y = m_controller.getRawAxis(1);
+            double rx = m_controller.getRawAxis(2);
+          
+            /*Calculating speeds of the four wheels*/
+            double flSpeed = Math.sqrt(Math.pow(x - rx, 2) + Math.pow(y, 2));
+            double frSpeed = Math.sqrt(Math.pow(x + rx, 2) + Math.pow(y, 2));
+            double blSpeed = Math.sqrt(Math.pow(x - rx, 2) + Math.pow(y, 2));
+            double brSpeed = Math.sqrt(Math.pow(x + rx, 2) + Math.pow(y, 2));
+          
+            /*Calculating angles of the four wheels*/
+            double flAngle = Math.toDegrees(Math.atan2(x - rx, y));
+            double frAngle = Math.toDegrees(Math.atan2(x + rx, y));
+            double blAngle = Math.toDegrees(Math.atan2(x - rx, y));
+            double brAngle = Math.toDegrees(Math.atan2(x + rx, y));
+          
+            /*Limiting the encoder range*/
+            if (m_limitSwitch_fL.get()) {
+              m_encoder_fL.setPosition(0);
+            }
+            if (m_limitSwitch_fR.get()) {
+              m_encoder_fR.setPosition(0);
+            }
+            if (m_limitSwitch_bL.get()) {
+              m_encoder_bL.setPosition(0);
+            }
+            if (m_limitSwitch_bR.get()) {
+              m_encoder_bR.setPosition(0);
+            }
+          
+            /*Setting the PigeonIMU's angle*/
+            double[] imuData = new double[3];
+            m_pigeon.getYawPitchRoll(imuData);
+            double yaw = imuData[0];
+          
+            /*Setting the wheels' speeds and angles*/
+            m_fL.set(flSpeed);
+            m_fR.set(frSpeed);
+            m_bL.set(blSpeed);
+            m_bR.set(brSpeed);
+          
+            m_fL.getPIDController().setReference(flAngle + yaw, ControlType.kPosition);
+            m_fR.getPIDController().setReference(frAngle + yaw, Control 
+
       </code>
       <button class="copy-btn" onclick="copyToClipboard(2)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
     </div>
     <div class="code-frame">
       <code>
-        SOON...
+        package frc.robot;
+        import com.revrobotics.CANSparkMax;
+        import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+        import com.ctre.phoenix.sensors.PigeonIMU;
+        import com.revrobotics.CANEncoder;
+        import edu.wpi.first.wpilibj.Joystick;
+        import edu.wpi.first.wpilibj.SpeedControllerGroup;
+        import edu.wpi.first.wpilibj.TimedRobot;
+        import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
+        public class Robot extends TimedRobot {
+
+            private static final int kFrontLeftID = 1;
+            private static final int kFrontRightID = 2;
+            private static final int kBackRightID = 3;
+            private static final int kBackLeftID = 4;
+            private static final int kPigeonID = 5;
+            private static final int kCanCoderID = 6;
+
+            private CANSparkMax m_frontLeftMotor;
+            private CANSparkMax m_frontRightMotor;
+            private CANSparkMax m_backRightMotor;
+            private CANSparkMax m_backLeftMotor;
+
+            private PigeonIMU m_pigeon;
+            private CANEncoder m_canCoder;
+
+            private DifferentialDrive m_drive;
+            private Joystick m_controller;
+
+            @Override
+            public void robotInit() {
+                m_frontLeftMotor = new CANSparkMax(kFrontLeftID, MotorType.kBrushless);
+                m_frontRightMotor = new CANSparkMax(kFrontRightID, MotorType.kBrushless);
+                m_backRightMotor = new CANSparkMax(kBackRightID, MotorType.kBrushless);
+                m_backLeftMotor = new CANSparkMax(kBackLeftID, MotorType.kBrushless);
+
+                SpeedControllerGroup leftMotors = new SpeedControllerGroup(m_frontLeftMotor, m_backLeftMotor);
+                SpeedControllerGroup rightMotors = new SpeedControllerGroup(m_frontRightMotor, m_backRightMotor);
+
+                m_drive = new DifferentialDrive(leftMotors, rightMotors);
+
+                m_pigeon = new PigeonIMU(kPigeonID);
+                m_canCoder = CANCoder(kCanCoderID);
+
+                m_controller = new Joystick(0);
+            }
+
+            @Override
+            public void teleopPeriodic() {
+                double forwardSpeed = -m_controller.getRawAxis(1);     // y-axis of left joystick
+                double turnSpeed = m_controller.getRawAxis(4);         // x-axis of right joystick
+
+                double heading = m_pigeon.getFusedHeading();
+                double targetHeading = (turnSpeed * 180) + heading;
+                double currentAngle = m_canCoder.getPosition();
+
+                double angleError = currentAngle - targetHeading;
+                if(angleError > 180) {
+                    angleError -= 360;
+                } else if(angleError < -180) {
+                    angleError += 360;
+                }
+
+                double rotateCommand = angleError * 0.02;
+
+                m_drive.arcadeDrive(forwardSpeed, rotateCommand);
+            }
+        }
+
       </code>
       <button class="copy-btn" onclick="copyToClipboard(3)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
     </div>
