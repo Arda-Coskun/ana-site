@@ -17,8 +17,7 @@
         white-space: pre-wrap;
         word-break: break-all;
         line-height: 1.5;
-        margin-bottom:2.5rem;
-        border-radius: 2.5rem;
+        margin-bottom:5px;
       }
       
       /* Copy button styles */
@@ -431,69 +430,6 @@
       </code>
       <button class="copy-btn" onclick="copyToClipboard(3)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
     </div>
-    
-    
-      <div class="code-frame">
-      <code>
-        package frc.robot;
-        import com.revrobotics.*;
-        import edu.wpi.first.wpilibj.*;
-        import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-        public class Robot extends TimedRobot {
-  
-          private final int MOTOR_PORT = 1; // change this to the actual port number
-          private final int BUTTON_PORT = 0; // change this to the actual port number
-          private final double MAX_POSITION = 100.0; // maximum position allowed
-          private final double SOFT_LIMIT = 90.0; // position at which to apply soft limit
-  
-          private SparkMax motor;
-          private DigitalInput button;
-          private double startTime;
-          private boolean isRunning;
-  
-    @Override
-        public void robotInit() {
-        motor = new SparkMax(MOTOR_PORT, MotorType.kBrushed);
-        button = new DigitalInput(BUTTON_PORT);
-        isRunning = false;
-      }
-
-  @Override
-  public void autonomousInit() {
-    startTime = Timer.getFPGATimestamp();
-    isRunning = false;
-  }
-
-  @Override
-  public void autonomousPeriodic() {
-    double currentTime = Timer.getFPGATimestamp();
-    if (button.get() && !isRunning && (currentTime - startTime) < 5.0) {
-      // button pressed and motor is not running and time limit not reached
-      motor.set(1.0); // full speed forward
-      isRunning = true;
-    }
-    if (isRunning) {
-      double position = motor.getEncoder().getPosition();
-      if (position >= SOFT_LIMIT && position < MAX_POSITION) {
-        double speed = (MAX_POSITION - position) / (MAX_POSITION - SOFT_LIMIT); // linearly decrease speed
-        motor.set(speed);
-      }
-      if (position >= MAX_POSITION) {
-        motor.set(0.0); // stop motor at max position
-        isRunning = false;
-      }
-    }
-  }
-
-}
-
-        
-      </code>
-      <button class="copy-btn" onclick="copyToClipboard(4)"><img src="img/copy.png" width="25" height="25">Copy Code</button>
-    </div>
-        
-        
     <script>
       function copyToClipboard(frameIndex) {
         /* Get the code frame element */
