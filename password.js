@@ -10,5 +10,6 @@ var password = "admin";
  if (document.getElementById('pass1').value == password)
  {('Şifre doğru!');
  window.location.href = "http://www.ardacoskun.dev/admin";
+ return false;
  }
  }
