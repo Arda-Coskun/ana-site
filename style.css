@@ -98,6 +98,24 @@ h2{
     left: 16px;
 }
 
+summary{
+    color: white;
+    font-size: 50px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    top: 8px;
+    left: 16px;
+}
+
+details{
+    color: white;
+    font-size: 25px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    top: 8px;
+    left: 16px;
+}
+
 p.aa{
     color: white;
     font-size: 20px;
